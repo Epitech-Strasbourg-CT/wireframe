@@ -5,7 +5,7 @@
 ## Login   <cedric@epitech.net>
 ## 
 ## Started on  Sat Oct 22 10:37:32 2016 Cédric Thomas
-## Last update Tue Nov 22 17:01:11 2016 Cédric Thomas
+## Last update Wed Nov 23 12:05:55 2016 Cédric Thomas
 ##
 
 SRC	=	main.c				\
@@ -24,7 +24,7 @@ NAME	=	wireframe
 
 LIB_F	=	./lib/
 
-LIB	=	-lmysf -lm -lc_graph_prog -lmy
+LIB	=	-lm -lc_graph_prog -lmy -lmysf
 
 INCLUDE	=	-I./include/
 

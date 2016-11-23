@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Tue Nov 22 16:17:23 2016 Cédric Thomas
-** Last update Tue Nov 22 22:32:39 2016 Cédric Thomas
+** Last update Wed Nov 23 21:25:16 2016 Cédric Thomas
 */
 #include "wireframe.h"
 #include "my.h"
@@ -68,9 +68,9 @@ void		set_vertex_position(t_vertex **bot, t_vertex **top, sfVector2i dim)
   ttop = *top;
   while (i < dim.x * dim.y)
     {
-      vector.x = X_SQ * (i % dim.x);
+      vector.x = X_SQ * (i % dim.x) - (double)(dim.x / 2 * X_SQ);
       vector.y = ttop->point.y * Y_SQ;
-      vector.z = Z_SQ * (i / dim.x);
+      vector.z = Z_SQ * (i / dim.x) - (double)(dim.x / 2 * Y_SQ);
       tbot->point = vector;
       tbot->point.y = 0;
       ttop->point = vector;
@@ -82,7 +82,7 @@ void		set_vertex_position(t_vertex **bot, t_vertex **top, sfVector2i dim)
 }
 
 void		my_draw_vertex(t_vertex **vertex, t_pixelbuff *buff,
-			       double angle, sfColor color)
+			       sfVector3f angle, sfColor color)
 {
   t_vertex      *temp;
   t_vertex      *in_temp;
@@ -95,11 +95,10 @@ void		my_draw_vertex(t_vertex **vertex, t_pixelbuff *buff,
       in_temp = temp->linked;
       while (in_temp != NULL)
 	{
-	  pos1 = my_parallel_projection(temp->point, angle);
-	  pos2 = my_parallel_projection(in_temp->point, angle);
+	  pos1 = my_3d_projection(temp->point, angle);
+	  pos2 = my_3d_projection(in_temp->point, angle);
 	  //	  printf("x1 : %d, y1 : %d ->> x2 : %d, y2 : %d\n",pos1.x, pos1.y,pos2.x, pos2.y);
-	  if (pos1.x >= 0 && pos1.y >= 0 && pos2.x >= 0 && pos2.y >= 0)
-	    my_draw_line(buff, pos1, pos2, color);
+	  my_draw_line(buff, pos1, pos2, color);
 	  in_temp = in_temp->next;
 	}
       temp = temp->next;

@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Nov 19 11:38:50 2016 Cédric Thomas
-** Last update Tue Nov 22 22:44:06 2016 Cédric Thomas
+** Last update Wed Nov 23 16:14:46 2016 Cédric Thomas
 */
 #include <stdlib.h>
 #include "wireframe.h"
@@ -46,14 +46,16 @@ static t_vertex		*fillheight(char **split)
   sfVector3f		position;
   t_vertex		*wire;
 
-  i = 0;
+  i = -1;
   wire = NULL;
-  while (split[i])
+  while (split[++i])
     {
-      j = 0;
-      while (split[i][j])
+      j = -1;
+      while (split[i][++j])
 	{
 	  position = myVector3f( 0, split[i][j] - '0', 0);
+	  if (j > 0)
+	    position.y *= (split[i][j - 1] == '-' ? -1 : 1 );
 	  if (is_in(split[i][j], "0123456789"))
 	    {
 	      if (j == 0 || !is_in(split[i][j - 1], "0123456789"))
@@ -61,9 +63,7 @@ static t_vertex		*fillheight(char **split)
 	      else
 		wire->point.y = wire->point.y * 10 + split[i][j] - '0';
 	    }
-	  j += 1;
 	}
-      i += 1;
     }
   return (wire);
 }

@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Fri Nov 18 20:21:53 2016 Cédric Thomas
-** Last update Tue Nov 22 17:05:41 2016 Cédric Thomas
+** Last update Wed Nov 23 19:53:54 2016 Cédric Thomas
 */
 #include <SFML/Graphics.h>
 #include <math.h>
@@ -31,7 +31,9 @@ void		my_draw_line(t_pixelbuff *buff,
     {
       pixel.x = from.x + i * dir.x;
       pixel.y = from.y + i * dir.y;
-      put_pixel(buff, pixel.x, pixel.y, color);
+      if (pixel.x < buff->x && pixel.y < buff->y
+	  && pixel.x >= 0 && pixel.y >= 0)
+	put_pixel(buff, pixel.x, pixel.y, color);
       i += 1;
     }
 }

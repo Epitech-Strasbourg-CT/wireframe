@@ -5,17 +5,17 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Nov 19 10:30:00 2016 Cédric Thomas
-** Last update Tue Nov 22 23:07:26 2016 Cédric Thomas
+** Last update Wed Nov 23 23:04:55 2016 Cédric Thomas
 */
 #include "mysf.h"
 
 #ifndef WIREFRAME_H_
 # define WIREFRAME_H_
 
-#define BUFF_SIZE 4096
-#define X_SQ 10
-#define Y_SQ 15
-#define Z_SQ 10
+#define BUFF_SIZE 4096000
+#define X_SQ 2
+#define Y_SQ 2
+#define Z_SQ 2
 
 /*
 **parse
@@ -34,7 +34,9 @@ sfVector2i	wireparse(t_vertex **bot, t_vertex **top, char *path);
 **
 **vertex.c
 */
-void	free_vertex(t_vertex **vertex, int recur);
+void		free_vertex(t_vertex **vertex, int recur);
+sfVector2i	my_3d_projection(sfVector3f pos3d,
+				       sfVector3f camera);
 
 /*
 **draw
@@ -43,7 +45,7 @@ void	free_vertex(t_vertex **vertex, int recur);
 */
 void	my_draw_vertex(t_vertex **vertex,
 		       t_pixelbuff *buff,
-		       double angle, sfColor color);
+		       sfVector3f angle, sfColor color);
 void	set_vertex_position(t_vertex **bot,
 			    t_vertex **top,
 			    sfVector2i dim);
