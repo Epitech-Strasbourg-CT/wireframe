@@ -5,21 +5,18 @@
 ## Login   <cedric@epitech.net>
 ## 
 ## Started on  Sat Oct 22 10:37:32 2016 Cédric Thomas
-## Last update Sat Dec  3 15:47:23 2016 Cédric Thomas
+## Last update Wed Nov 23 12:05:55 2016 Cédric Thomas
 ##
 
 SRC	=	main.c				\
-		position/position_vertex.c	\
-		misc/misc_vector.c		\
-		misc/misc_pixelbuff.c		\
-		misc/misc_vertex.c		\
-		misc/misc_win.c			\
-		disp/disp.c			\
-		disp/disp_vertex.c		\
-		parse/parse.c			\
-		parse/parse_wireframe.c		\
+		draw/vertex.c			\
+		misc/vertex_free.c		\
 		src/my_draw_line.c		\
-		src/my_put_pixel.c
+		src/my_isometric_projection.c	\
+		src/my_parallel_projection.c	\
+		src/my_put_pixel.c		\
+		parse/parse.c 			\
+		parse/link_wireframe.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -27,7 +24,7 @@ NAME	=	wireframe
 
 LIB_F	=	./lib/
 
-LIB	=	-lm -lc_graph_prog -lmy
+LIB	=	-lm -lc_graph_prog -lmy -lmysf
 
 INCLUDE	=	-I./include/
 
