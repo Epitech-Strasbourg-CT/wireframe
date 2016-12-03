@@ -5,13 +5,13 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Fri Nov 18 20:21:53 2016 Cédric Thomas
-** Last update Sat Dec  3 15:46:50 2016 Cédric Thomas
+** Last update Sat Dec  3 19:46:02 2016 Cédric Thomas
 */
 #include <SFML/Graphics.h>
 #include <math.h>
 #include "wireframe.h"
 
-void		my_draw_line(t_pixelbuff *buff,
+void		my_draw_line(t_framebuffer *buff,
 			 sfVector2i from,
 			 sfVector2i to,
 			 sfColor color)

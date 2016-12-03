@@ -5,12 +5,12 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Fri Nov 18 20:32:11 2016 Cédric Thomas
-** Last update Wed Nov 23 19:52:18 2016 Cédric Thomas
+** Last update Sat Dec  3 19:45:41 2016 Cédric Thomas
 */
 #include <SFML/Graphics.h>
 #include "wireframe.h"
 
-void	my_put_pixel(t_pixelbuff *buffer,
+void	my_put_pixel(t_framebuffer *buffer,
 		     int x,
 		     int y,
 		     sfColor color)
