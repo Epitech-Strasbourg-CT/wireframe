@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Mon Nov 21 21:24:38 2016 Cédric Thomas
-** Last update Wed Nov 23 21:27:11 2016 Cédric Thomas
+** Last update Thu Nov 24 13:11:12 2016 Cédric Thomas
 */
 #include <math.h>
 #include <stdlib.h>
@@ -16,8 +16,8 @@ sfVector2i      my_3d_projection(sfVector3f pos3d,
 {
   sfVector2i    pos2d;
 
-  pos2d.x = WIDTH / 2 + pos3d.x - cos(camera.x * M_PI / 180) * pos3d.z;
-  pos2d.y = HEIGHT  / 2 - pos3d.y + sin(camera.x * M_PI / 180) * pos3d.z;
+  pos2d.x = pos3d.x - cos(camera.x * M_PI / 180) * pos3d.z + sin(camera.y * M_PI / 180);
+  pos2d.y = pos3d.y - sin(camera.x * M_PI / 180) * pos3d.z + sin(camera.y * M_PI / 180);
   return (pos2d);
 }
 

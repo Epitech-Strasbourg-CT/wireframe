@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Tue Nov 22 16:17:23 2016 Cédric Thomas
-** Last update Wed Nov 23 21:25:16 2016 Cédric Thomas
+** Last update Thu Nov 24 13:04:16 2016 Cédric Thomas
 */
 #include "wireframe.h"
 #include "my.h"
@@ -96,7 +96,11 @@ void		my_draw_vertex(t_vertex **vertex, t_pixelbuff *buff,
       while (in_temp != NULL)
 	{
 	  pos1 = my_3d_projection(temp->point, angle);
+	  pos1.x = WIDTH / 2 + pos1.x;
+	  pos1.y = HEIGHT / 2 - pos1.y;
 	  pos2 = my_3d_projection(in_temp->point, angle);
+	  pos2.x = WIDTH / 2 + pos2.x;
+	  pos2.y = HEIGHT / 2 - pos2.y;
 	  //	  printf("x1 : %d, y1 : %d ->> x2 : %d, y2 : %d\n",pos1.x, pos1.y,pos2.x, pos2.y);
 	  my_draw_line(buff, pos1, pos2, color);
 	  in_temp = in_temp->next;

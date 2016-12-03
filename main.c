@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Oct 22 10:31:05 2016 Cédric Thomas
-** Last update Wed Nov 23 21:30:42 2016 Cédric Thomas
+** Last update Thu Nov 24 09:49:19 2016 Cédric Thomas
 */
 #include <stdio.h> //#ADELETE
 #include "wireframe.h"
@@ -110,10 +110,6 @@ int		main(int ac, char **av)
   if (dim.x == -1)
     return (84);
   set_vertex_position(&bot, &top, dim);
-  /* printf("bot :\n===================\n"); */
-  /* show_vertex(&bot, 1); */
-  /* printf("top :\n===================\n"); */
-  /* show_vertex(&top, 1); */
   draw_this(&bot, &top, dim);
   free_vertex(&top, 1);
   free_vertex(&bot, 1);
