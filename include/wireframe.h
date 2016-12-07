@@ -5,19 +5,15 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Nov 19 10:30:00 2016 Cédric Thomas
-** Last update Sat Dec  3 16:28:06 2016 Cédric Thomas
+** Last update Wed Dec  7 21:53:50 2016 Cédric Thomas
 */
 #ifndef WIREFRAME_H_
 # define WIREFRAME_H_
 
 #include <SFML/Graphics.h>
 
-# define X_SQ 2
-# define Y_SQ 2
-# define Z_SQ 2
-
-# define WIDTH 1200
-# define HEIGHT 960
+# define WIDTH 1920
+# define HEIGHT 1080
 
 typedef struct		s_cam
 {
@@ -51,6 +47,8 @@ typedef struct          s_vertex
 /*
 **WIREFRAME
 */
+
+void	connect_mod_vertex(t_vertex **ll, sfVector2i dim, int mod);
 
 /*
 **WIREFRAME_PARSE
@@ -114,7 +112,7 @@ void		set_vertex_position(t_vertex **bot,
 */
 
 /*
-**disp.c 
+**disp.c
 */
 void    draw_this(t_vertex **bot, t_vertex **top, sfVector2i dim);
 
@@ -122,7 +120,7 @@ void    draw_this(t_vertex **bot, t_vertex **top, sfVector2i dim);
 **disp_vertex.c
 */
 void		my_draw_vertex(t_vertex **vertex, t_pixelbuff *buff,
-		       t_cam cam, sfColor color);
+			       t_cam cam, sfColor color);
 sfVector2i	my_3d_projection(sfVector3f pos3d,
 				 t_cam cam);
 /*

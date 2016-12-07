@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Nov 19 10:32:09 2016 Cédric Thomas
-** Last update Sat Dec  3 13:23:27 2016 Cédric Thomas
+** Last update Wed Dec  7 20:35:04 2016 Cédric Thomas
 */
 #include <fcntl.h>
 #include <stdlib.h>

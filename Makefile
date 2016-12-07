@@ -5,7 +5,7 @@
 ## Login   <cedric@epitech.net>
 ## 
 ## Started on  Sat Oct 22 10:37:32 2016 Cédric Thomas
-## Last update Sat Dec  3 15:47:23 2016 Cédric Thomas
+## Last update Sun Dec  4 11:39:44 2016 Cédric Thomas
 ##
 
 SRC	=	main.c				\
@@ -19,7 +19,9 @@ SRC	=	main.c				\
 		parse/parse.c			\
 		parse/parse_wireframe.c		\
 		src/my_draw_line.c		\
-		src/my_put_pixel.c
+		src/my_put_pixel.c		\
+		src/my_parallel_projection.c	\
+		src/my_isometric_projection.c
 
 OBJ	=	$(SRC:.c=.o)
 

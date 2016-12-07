@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Dec  3 11:57:42 2016 Cédric Thomas
-** Last update Sat Dec  3 18:15:35 2016 Cédric Thomas
+** Last update Wed Dec  7 20:38:45 2016 Cédric Thomas
 */
 #include <stdlib.h>
 #include <SFML/Graphics.h>
@@ -26,8 +26,8 @@ static sfVector2i	getdim(char **tab)
       count = 0;
       while (tab[dim.y][i])
 	{
-	  if (is_nb(tab[dim.y][i]) &&
-	      (i == 0 || !is_nb(tab[dim.y][i - 1])))
+	  if (is_in(tab[dim.y][i], "0123456789-") &&
+	      (i == 0 || !is_in(tab[dim.y][i - 1], "0123456789-")))
 	    count += 1;
 	  i += 1;
 	}

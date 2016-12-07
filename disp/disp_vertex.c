@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Dec  3 15:32:39 2016 Cédric Thomas
-** Last update Sat Dec  3 17:33:52 2016 Cédric Thomas
+** Last update Wed Dec  7 21:56:06 2016 Cédric Thomas
 */
 #include <stdlib.h>
 #include <math.h>
@@ -53,16 +53,12 @@ sfVector2i	my_3d_projection(sfVector3f pos3d,
   rotate_x(&pos3d, cam.angle.x);
   rotate_z(&pos3d, cam.angle.z);
   rotate_y(&pos3d, cam.angle.y);
-  
   pos2d.x = pos3d.x - cos(40 * M_PI / 180) * pos3d.z;
   pos2d.y = pos3d.y - sin(40 * M_PI / 180) * pos3d.z;
-
   pos2d.x += cam.position.x;
   pos2d.y += cam.position.y;
-  
   pos2d.x *= cam.zoom;
   pos2d.y *= cam.zoom;
-  
   return (pos2d);
 }
 
@@ -82,10 +78,10 @@ void		my_draw_vertex(t_vertex **vertex, t_pixelbuff *buff,
 	{
 	  pos1 = my_3d_projection(temp->point, cam);
 	  pos1.x = WIDTH / 2 + pos1.x;
-	  pos1.y = HEIGHT / 2 - pos1.y;
+	  pos1.y = (3 * HEIGHT) / 4 - pos1.y;
 	  pos2 = my_3d_projection(in_temp->point, cam);
 	  pos2.x = WIDTH / 2 + pos2.x;
-	  pos2.y = HEIGHT / 2 - pos2.y;
+	  pos2.y = (3 * HEIGHT) / 4 - pos2.y;
 	  my_draw_line(buff, pos1, pos2, color);
 	  in_temp = in_temp->next;
 	}

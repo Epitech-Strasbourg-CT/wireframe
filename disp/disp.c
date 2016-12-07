@@ -5,14 +5,14 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Dec  3 11:13:09 2016 Cédric Thomas
-** Last update Sat Dec  3 18:14:18 2016 Cédric Thomas
+** Last update Wed Dec  7 21:57:13 2016 Cédric Thomas
 */
 #include "wireframe.h"
 #include "my.h"
 
 static int	checkevent(sfRenderWindow *window, sfEvent *event, t_cam *cam)
 {
-  if(sfRenderWindow_pollEvent(window, event))
+  if (sfRenderWindow_pollEvent(window, event))
     {
       if (event->type == sfEvtClosed || event->key.code == sfKeyEscape)
 	sfRenderWindow_close(window);
@@ -52,10 +52,11 @@ static void	init_cam(t_cam *cam)
   cam->position = myvector2i(0, 0);
 }
 
-static void	redraw(t_vertex **bot, t_vertex **top, t_cam cam, t_pixelbuff **buff)
+static void	redraw(t_vertex **bot, t_vertex **top,
+		       t_cam cam, t_pixelbuff **buff)
 {
   clean(buff);
-  my_draw_vertex(bot, *buff, cam, sfBlue);
+  my_draw_vertex(bot, *buff, cam, sfRed);
   my_draw_vertex(top, *buff, cam, sfWhite);
 }
 
@@ -77,7 +78,7 @@ void	draw_this(t_vertex **bot, t_vertex **top, sfVector2i dim)
     {
       if (checkevent(window, &event, &cam))
 	{
-	  redraw(bot, top, cam, &buff);	  
+	  redraw(bot, top, cam, &buff);
 	  sfTexture_updateFromPixels(image.tex, buff->pixels, WIDTH, HEIGHT, 0, 0);
 	}
       sfRenderWindow_drawSprite(window, image.spri, NULL);

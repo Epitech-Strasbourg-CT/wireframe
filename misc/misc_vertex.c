@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Dec  3 13:48:06 2016 Cédric Thomas
-** Last update Sat Dec  3 14:10:15 2016 Cédric Thomas
+** Last update Wed Dec  7 21:17:26 2016 Cédric Thomas
 */
 #include <stdlib.h>
 #include "wireframe.h"
@@ -69,7 +69,7 @@ int		connect_vertex(t_vertex **ll, int index1, int index2, int connect)
 
   temp = *ll;
   i = 0;
-  while (temp != NULL)
+  while (temp != NULL && i != index2 + 1)
     {
       if (connect && temp->next != NULL)
 	{

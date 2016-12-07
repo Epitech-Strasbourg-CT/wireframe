@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Dec  3 14:25:03 2016 Cédric Thomas
-** Last update Sat Dec  3 18:30:34 2016 Cédric Thomas
+** Last update Wed Dec  7 21:55:37 2016 Cédric Thomas
 */
 #include "wireframe.h"
 #include "my.h"
@@ -14,8 +14,12 @@ sfVector2i	get_coeff(sfVector2i dim)
 {
   sfVector2i	coef;
 
-  coef.x = WIDTH / dim.x;
-  coef.y = HEIGHT / dim.y;
+  coef.x = WIDTH / (dim.x * 2);
+  coef.y = HEIGHT / (dim.y * 2);
+  if (coef.x < 2)
+    coef.x = 2;
+  if (coef.y < 2)
+    coef.y = 2;
   return (coef);
 }
 
@@ -24,11 +28,11 @@ static void	link_vert(t_vertex **bot, t_vertex **top, sfVector2i dim)
   int		i;
 
   i = 0;
-  while (i < dim.x * (dim.y - 1))
+  while (i < dim.x)
     {
-      connect_vertex(top, i, i + dim.x, 0);
-      connect_vertex(bot, i, i + dim.x, 0);
-      i += 1;     
+      connect_mod_vertex(bot, dim, i);
+      connect_mod_vertex(top, dim, i);
+      i += 1;
     }
 }
 
