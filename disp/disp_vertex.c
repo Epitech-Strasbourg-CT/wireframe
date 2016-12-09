@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Dec  3 15:32:39 2016 Cédric Thomas
-** Last update Wed Dec  7 21:56:06 2016 Cédric Thomas
+** Last update Fri Dec  9 17:33:00 2016 Cédric Thomas
 */
 #include <stdlib.h>
 #include <math.h>
@@ -53,8 +53,8 @@ sfVector2i	my_3d_projection(sfVector3f pos3d,
   rotate_x(&pos3d, cam.angle.x);
   rotate_z(&pos3d, cam.angle.z);
   rotate_y(&pos3d, cam.angle.y);
-  pos2d.x = pos3d.x - cos(40 * M_PI / 180) * pos3d.z;
-  pos2d.y = pos3d.y - sin(40 * M_PI / 180) * pos3d.z;
+  pos2d.x = pos3d.x + 0.7 * cos(40 * M_PI / 180) * pos3d.z;
+  pos2d.y = pos3d.y + 0.7 * sin(40 * M_PI / 180) * pos3d.z;
   pos2d.x += cam.position.x;
   pos2d.y += cam.position.y;
   pos2d.x *= cam.zoom;
