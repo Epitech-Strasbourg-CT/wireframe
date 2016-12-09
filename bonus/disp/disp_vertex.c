@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Dec  3 15:32:39 2016 Cédric Thomas
-** Last update Fri Dec  9 20:32:49 2016 Cédric Thomas
+** Last update Fri Dec  9 20:34:40 2016 Cédric Thomas
 */
 #include <stdlib.h>
 #include <math.h>
