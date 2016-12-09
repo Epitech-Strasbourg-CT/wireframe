@@ -5,12 +5,30 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Dec  3 11:57:42 2016 Cédric Thomas
-** Last update Wed Dec  7 20:38:45 2016 Cédric Thomas
+** Last update Fri Dec  9 14:14:50 2016 Cédric Thomas
 */
 #include <stdlib.h>
 #include <SFML/Graphics.h>
 #include "my.h"
 #include "wireframe.h"
+
+static int	check_str(char *str)
+{
+  int		i;
+  int		bool;
+
+  bool = 1;
+  i = 0;
+  while (str[i])
+    {
+      if (str[i] == '-')
+	bool = 0;
+      else if (is_in(str[i], "0123456789"))
+	bool = 1;
+      i += 1;
+    }
+  return (bool);
+}
 
 static sfVector2i	getdim(char **tab)
 {
@@ -55,8 +73,8 @@ static t_vertex		*fillheight(char **split)
       while (split[i][++j])
 	{
 	  position = myvector3f( 0, split[i][j] - '0', 0);
-	  if (j > 0)
-	    position.y *= (split[i][j - 1] == '-' ? -1 : 1 );
+	  if (j > 0 && split[i][j])
+	    position.y *= (split[i][j - 1] == '-' ? -1 : 1);
 	  if (is_in(split[i][j], "0123456789"))
 	    {
 	      if (j == 0 || !is_in(split[i][j - 1], "0123456789"))
@@ -78,6 +96,8 @@ sfVector2i	wireparse(t_vertex **bot, t_vertex **top, char *path)
   dim.x = -1;
   dim.y = -1;
   if ((readed = my_read(path)) == NULL)
+    return (dim);
+  if (!check_str(readed))
     return (dim);
   if ((split = my_split(readed, '\n')) == NULL)
     return (dim);

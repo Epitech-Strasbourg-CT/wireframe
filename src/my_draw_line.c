@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Fri Nov 18 20:21:53 2016 Cédric Thomas
-** Last update Sat Dec  3 19:46:02 2016 Cédric Thomas
+** Last update Thu Dec  8 16:07:48 2016 Cédric Thomas
 */
 #include <SFML/Graphics.h>
 #include <math.h>
@@ -27,7 +27,7 @@ void		my_draw_line(t_framebuffer *buff,
   norme = sqrt(pow(dir.y, 2) + pow(dir.x, 2));
   dir.x /= norme;
   dir.y /= norme;
-  while (i < norme)
+  while (i <= norme)
     {
       pixel.x = from.x + i * dir.x;
       pixel.y = from.y + i * dir.y;

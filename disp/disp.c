@@ -5,14 +5,14 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Dec  3 11:13:09 2016 Cédric Thomas
-** Last update Wed Dec  7 21:57:13 2016 Cédric Thomas
+** Last update Fri Dec  9 14:18:02 2016 Cédric Thomas
 */
 #include "wireframe.h"
 #include "my.h"
 
 static int	checkevent(sfRenderWindow *window, sfEvent *event, t_cam *cam)
 {
-  if (sfRenderWindow_pollEvent(window, event))
+  if (sfRenderWindow_pollEvent(window, event) && event->type == sfEvtKeyPressed)
     {
       if (event->type == sfEvtClosed || event->key.code == sfKeyEscape)
 	sfRenderWindow_close(window);
