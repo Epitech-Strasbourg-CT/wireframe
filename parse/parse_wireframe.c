@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Dec  3 11:57:42 2016 Cédric Thomas
-** Last update Fri Dec  9 14:14:50 2016 Cédric Thomas
+** Last update Sat Dec 10 00:52:54 2016 Cédric Thomas
 */
 #include <stdlib.h>
 #include <SFML/Graphics.h>
@@ -72,15 +72,15 @@ static t_vertex		*fillheight(char **split)
       j = -1;
       while (split[i][++j])
 	{
-	  position = myvector3f( 0, split[i][j] - '0', 0);
+	  position = myvector3f(0, 0, split[i][j] - '0');
 	  if (j > 0 && split[i][j])
-	    position.y *= (split[i][j - 1] == '-' ? -1 : 1);
+	    position.z *= (split[i][j - 1] == '-' ? -1 : 1);
 	  if (is_in(split[i][j], "0123456789"))
 	    {
 	      if (j == 0 || !is_in(split[i][j - 1], "0123456789"))
 		put_vertex(&wire, position, 0);
 	      else
-		wire->point.y = wire->point.y * 10 + split[i][j] - '0';
+		wire->point.z = wire->point.z * 10 + split[i][j] - '0';
 	    }
 	}
     }

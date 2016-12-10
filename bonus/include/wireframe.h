@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Nov 19 10:30:00 2016 Cédric Thomas
-** Last update Fri Dec  9 18:14:34 2016 Cédric Thomas
+** Last update Sat Dec 10 09:57:04 2016 Cédric Thomas
 */
 #ifndef WIREFRAME_H_
 # define WIREFRAME_H_
@@ -123,6 +123,11 @@ void		my_draw_vertex(t_vertex **vertex, t_pixelbuff *buff,
 			       t_cam cam, sfColor color);
 sfVector2i	my_3d_projection(sfVector3f pos3d,
 				 t_cam cam);
+
+/*
+**disp_spec.c
+*/
+void	form(t_vertex **bot, t_vertex **top, char *prec, char *rayon);
 /*
 **src
 */

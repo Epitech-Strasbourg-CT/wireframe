@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Oct 22 10:31:05 2016 Cédric Thomas
-** Last update Fri Dec  9 20:35:13 2016 Cédric Thomas
+** Last update Sat Dec 10 00:23:43 2016 Cédric Thomas
 */
 #include <SFML/Graphics.h>
 #include "wireframe.h"
@@ -38,17 +38,17 @@ int		main(int ac, char **av)
   t_vertex	*bot;
   sfVector2i	dim;
 
-  if (ac != 2)
-    return (84);
-  if (my_strcmp("-s", av[1]))
+  if (ac == 2 && my_strcmp("-s", av[1]))
     {
       dim = wireparse(&bot, &top, av[1]);
       if (dim.x == -1)
 	return (84);
       set_vertex_position(&bot, &top, dim);
     }
+  else if (ac == 4 && !my_strcmp("-s", av[1]))
+    form(&bot, &top, av[2], av[3]);
   else
-    form(&bot, &top);
+    return (84);
   draw_this(&bot, &top, dim);
   free_vertex(&top, 1);
   free_vertex(&bot, 1);

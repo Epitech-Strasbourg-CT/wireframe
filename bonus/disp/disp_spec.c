@@ -5,53 +5,57 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Fri Dec  9 20:23:51 2016 Cédric Thomas
-** Last update Fri Dec  9 23:00:11 2016 Cédric Thomas
+** Last update Sat Dec 10 11:29:34 2016 Cédric Thomas
 */
+#include <stdio.h>
 #include <math.h>
 #include "wireframe.h"
+#include "my.h"
 
-static void	rotate_y(sfVector3f *vec, double deg)
+static void	rotate(sfVector3f *vec, double deg)
 {
-  double        alpha;
-  double        tmp;
+  double	tmp;
 
   tmp = vec->x;
-  vec->x = tmp * cos(alpha) + vec->z * sin(alpha);
-  vec->z = tmp * -sin(alpha) + vec->z * cos(alpha);
+  vec->x = tmp * cos(deg) + vec->z * sin(deg);
+  vec->z = tmp * -sin(deg) + vec->z * cos(deg);
 }
 
-static void		add_circle(t_vertex **ll, double rayon, int precision, double angle)
+static void		add_circley(t_vertex **ll, double rayon,
+				    int precision, double angle)
 {
   double	i;
   sfVector3f	vec;
 
-  i = 0;
-  while (i <= rayon * M_PI)
+  i = 1;
+  while (i <= M_PI * 2 + 1.01)
     {
-      vec.z = rayon * sinf(i);
+      vec.z = 0;
       vec.x = rayon * cosf(i);
-      vec.y = 0;
-      rotate_y(&vec, angle);
-      put_vertex(ll, vec, i);
-      i += rayon * M_PI * 25 / 100;
+      vec.y = rayon * sinf(i);
+      rotate(&vec, angle);
+      if (i == 1)
+	put_vertex(ll, vec, 0);
+      else
+	put_vertex(ll, vec, 1);
+      i += M_PI / precision;
     }
 }
 
-void	form(t_vertex **bot, t_vertex **top)
+void	form(t_vertex **bot, t_vertex **top, char *prec, char *r)
 {
-  int	i;
-  int	rayon;
-  int	precision;
+  double	i;
+  double	rayon;
+  double	precision;
 
   i = 0;
-  rayon = 300;
-  precision = 100;
+  rayon = my_getnbr(r);
+  precision = my_getnbr(prec);
   *bot = NULL;
   *top = NULL;
   while (i < M_PI)
     {
-      add_circle(bot, rayon, precision, i);
-      add_circle(top, rayon, precision, -i);
-      i += M_PI * 5 / 100;
+      add_circley(bot, rayon, precision, i);
+      i += M_PI * 5 / precision;
     }
 }

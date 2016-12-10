@@ -5,7 +5,7 @@
 ** Login   <cedric@epitech.net>
 ** 
 ** Started on  Sat Dec  3 14:25:03 2016 Cédric Thomas
-** Last update Wed Dec  7 21:55:37 2016 Cédric Thomas
+** Last update Sat Dec 10 00:56:44 2016 Cédric Thomas
 */
 #include "wireframe.h"
 #include "my.h"
@@ -85,11 +85,11 @@ void		set_vertex_position(t_vertex **bot,
   while (i < dim.x * dim.y)
     {
       vector.x = coef.x * (i % dim.x) - (double)(dim.x / 2 * coef.x);
-      vector.y = ttop->point.y * coef.y;
-      vector.z = (coef.x + coef.y) / 2 *
+      vector.y = (coef.x + coef.y) / 2 *
 	(i / dim.x) - (double)(dim.x / 2 * coef.y);
+      vector.z = ttop->point.z * coef.y;
       tbot->point = vector;
-      tbot->point.y = 0;
+      tbot->point.z = 0;
       ttop->point = vector;
       ttop = ttop->next;
       tbot = tbot->next;
